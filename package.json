@@ -1,0 +1,19 @@
+{
+  "name": "leaflet-control-starter",
+  "version": "1.0.0",
+  "description": "minimal starter control for leaflet",
+  "main": "dist/leaflet-control-starter.js",
+  "scripts": {
+    "build": "rollup -c",
+    "prepublish": "npm run build"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^11.0.1",
+    "@rollup/plugin-node-resolve": "^7.0.0",
+    "rollup": "^1.16.2",
+    "rollup-plugin-copy": "^3.3.0",
+    "rollup-plugin-terser": "^5.0.0"
+  }
+}

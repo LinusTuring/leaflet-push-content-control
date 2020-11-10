@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Leaflet control starter Demo</title>
+	<meta charset="utf-8" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href='http://fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+	<link rel="stylesheet" href="dist/leaflet-control-starter.css" />
+
+	<style>
+		html {background: #222222; padding: 40px 200px;font-family: 'Lato', sans-serif;}
+		h2,p {color: white;}
+		.gitButton{
+			padding:15px 30px;
+			background-color: #47a230;
+			text-decoration: none;
+			font-weight: 900;
+			color: white;
+			text-transform:uppercase;
+			transition: background-color .5s;
+			border: none;
+			border-radius: 2px;
+			cursor: pointer;
+		}
+		.gitButton:hover {background-color: #1d7806}
+		.gitButton:visited {color: white;}
+
+		.my-control-class {
+			border: 2px solid red;
+		}
+
+	</style>
+	
+</head>
+
+<body>
+	<h2>Leaflet control starter demo</h2>
+	<p>The (example) control will be visible in the bottom right corner of the map. It will update after zoom in / out or moving the map</p>
+	<div id="map" style="height:400px; width:800px"></div>
+	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+	<script src="dist/leaflet-control-starter.js"></script>
+
+	<script>
+
+		var map = L.map('map').setView([51.505, -0.09], 13);
+
+		L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}.png', {
+			maxZoom: 18,
+			attribution: 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
+		}).addTo(map);
+
+		// Add Leaflet-Control-Starter to map
+		(new L.Control.LeafletControlStarter({
+			position: 'bottomright',
+			cssClassName: 'my-control-class'
+		})).addTo(map);
+	</script>
+	<br><br>
+	<a href="https://github.com/steven-coding/leaflet-control-starter"><button class="gitButton"><i class="fa fa-github fa-lg"></i> Download me on github</button></a>
+</body>
+
+</html>
