@@ -1,8 +1,8 @@
 {
-  "name": "leaflet-control-starter",
+  "name": "leaflet-push-content-control",
   "version": "1.0.0",
-  "description": "minimal starter control for leaflet",
-  "main": "dist/leaflet-control-starter.js",
+  "description": "a leaflet control to push content to",
+  "main": "dist/leaflet-push-content-control.js",
   "scripts": {
     "build": "rollup -c",
     "prepublish": "npm run build"

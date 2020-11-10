@@ -1,7 +1,7 @@
-L.Control.LeafletControlStarter = L.Control.extend({
+L.Control.LeafletPushContentControl = L.Control.extend({
 
     // css-class that will (always) be set on the control container
-    baseCssClass: 'leaflet-control-starter',
+    baseCssClass: 'leaflet-push-content-control',
 
     // leaflet map (available after onAdd was called)
     map: undefined,
@@ -35,54 +35,20 @@ L.Control.LeafletControlStarter = L.Control.extend({
         // create control container and add css-classes
         let container = L.DomUtil.create('div', fullCssClassStringOnContainer);
 
-        // initialize event handlers
-        this.addEventHandlersToMap(map);
-
         // clicks on the container wont trigger events on the underlying map
         L.DomEvent.disableClickPropagation(container);
 
         // remember control container (=> content needs to be updated)
         this.container = container;
 
-        this.updateControl();
-
         return container;
     },
 
     // control is removed from the map
-    onRemove: function (map) {
-        // remove event handlers
-        this.removeEventHandlersFromMap(map);
-    },
-
-    // map finished zooming in / out
-    onMapZoomEnd: function () {
-
-        // update control content
-        this.updateControl();
-    },
-
-    // map finished moving
-    onMapMoveEnd: function () {
-
-        // update control content
-        this.updateControl();
-    },
-
-    // add event handlers
-    addEventHandlersToMap(map) {
-        map.on('moveend', this.onMapMoveEnd, this);
-        map.on('zoomend', this.onMapZoomEnd, this);
-    },
-
-    // remove event handlers
-    removeEventHandlersFromMap(map) {
-        map.off('moveend', this.onMapMoveEnd, this);
-        map.off('zoomend', this.onMapZoomEnd, this);
-    },
+    onRemove: function (map) {},
 
     // update control content
-    updateControl() {
-        this.container.innerText = this.map.getBounds().getCenter()+'(@Z'+this.map.getZoom()+')';
+    updateControl(text) {
+        this.container.innerText = text;
     }
 });
