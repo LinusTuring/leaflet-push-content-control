@@ -8,9 +8,9 @@ import copy from 'rollup-plugin-copy'
 const production = !process.env.ROLLUP_WATCH;
 
 export default {
-	input: 'src/leaflet-control-starter.js',
+	input: 'src/leaflet-push-content-control.js',
 	output: {
-		file: 'dist/leaflet-control-starter.js',
+		file: 'dist/leaflet-push-content-control.js',
 		format: 'umd',
 		sourcemap: true
 	},
@@ -19,7 +19,7 @@ export default {
 		commonjs(), // converts date-fns to ES modules,
 		copy({
 			targets: [
-				{ src: 'src/leaflet-control-starter.css', dest: 'dist' }
+				{ src: 'src/leaflet-push-content-control.css', dest: 'dist' }
 			]
 		}),
 		production && terser() // minify, but only in production

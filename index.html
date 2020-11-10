@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Leaflet control starter Demo</title>
+	<title>Leaflet push content control Demo</title>
 	<meta charset="utf-8" />
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href='http://fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
 	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
-	<link rel="stylesheet" href="dist/leaflet-control-starter.css" />
+	<link rel="stylesheet" href="dist/leaflet-push-content-control.css" />
 
 	<style>
 		html {background: #222222; padding: 40px 200px;font-family: 'Lato', sans-serif;}
@@ -37,11 +37,12 @@
 </head>
 
 <body>
-	<h2>Leaflet control starter demo</h2>
-	<p>The (example) control will be visible in the bottom right corner of the map. It will update after zoom in / out or moving the map</p>
+	<h2>Leaflet push content control demo</h2>
+	<p>The control will be visible in the bottom right corner of the map. It will update after you clicked this button:</p>
+	<p><button onclick="updateControlContent()">Click me to update</button></p>
 	<div id="map" style="height:400px; width:800px"></div>
 	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-	<script src="dist/leaflet-control-starter.js"></script>
+	<script src="dist/leaflet-push-content-control.js"></script>
 
 	<script>
 
@@ -52,14 +53,22 @@
 			attribution: 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
 		}).addTo(map);
 
-		// Add Leaflet-Control-Starter to map
-		(new L.Control.LeafletControlStarter({
+		// Add leaflet-push-content to map
+		var leafletPushContentControl = (new L.Control.LeafletPushContentControl({
 			position: 'bottomright',
 			cssClassName: 'my-control-class'
-		})).addTo(map);
+		}));
+
+		leafletPushContentControl.addTo(map);
+
+		updateControlContent();
+
+		function updateControlContent() {
+			leafletPushContentControl.updateControl('Last Update: '+new Date().toLocaleTimeString());
+		}
 	</script>
 	<br><br>
-	<a href="https://github.com/steven-coding/leaflet-control-starter"><button class="gitButton"><i class="fa fa-github fa-lg"></i> Download me on github</button></a>
+	<a href="https://github.com/linus-turing/leaflet-push-content-control"><button class="gitButton"><i class="fa fa-github fa-lg"></i> Download me on github</button></a>
 </body>
 
 </html>
