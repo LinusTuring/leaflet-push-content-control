@@ -3,12 +3,20 @@
   "version": "1.0.0",
   "description": "a leaflet control to push content to",
   "main": "dist/leaflet-push-content-control.js",
+   "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linusturing/leaflet-push-content-control.git"
+  },
   "scripts": {
     "build": "rollup -c",
     "prepublish": "npm run build"
   },
-  "author": "",
+  "author": "Linus Turing <l.turing@gmx.net>",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/linusturing/leaflet-push-content-control/issues"
+  },
+  "homepage": "https://github.com/LinusTuring/leaflet-easyprint-bbox",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^11.0.1",
     "@rollup/plugin-node-resolve": "^7.0.0",
