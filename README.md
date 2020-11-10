@@ -38,4 +38,4 @@ leafletPushContentControl.updateControl('Hello World!');
 
 
 ### Demo
-https://linus-turing.github.io/leaflet-push-content-control/
+https://linusturing.github.io/leaflet-push-content-control/
